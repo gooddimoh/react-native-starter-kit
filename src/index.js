@@ -7,11 +7,16 @@ import {
 } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreens} from './modules/home';
+import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createStackNavigator();
 
 function App() {
   const scheme = useColorScheme();
+
+  //hide splash screen
+  React.useEffect(() => SplashScreen.hide(), []);
+
   return (
     <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack.Navigator>
