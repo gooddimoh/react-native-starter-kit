@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {H1, H2, H3, H4, Body1, Body2} from '../../../styled/typography';
 import {useTheme} from '@react-navigation/native';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const {colors} = useTheme();
   return (
     <Container colors={colors}>
@@ -13,6 +13,10 @@ export default function HomeScreen() {
       <H4 colors={colors}>Heading 4</H4>
       <Body1 colors={colors}>Body 1</Body1>
       <Body2 colors={colors}>Body 2</Body2>
+      <Button
+        onPress={() => navigation.navigate('Settings')}
+        title="Go to Settings"
+      />
     </Container>
   );
 }
@@ -23,3 +27,5 @@ const Container = styled.View`
   justify-content: center;
   background-color: ${(props) => props.colors.background};
 `;
+
+const Button = styled.Button``;
