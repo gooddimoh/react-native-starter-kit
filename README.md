@@ -22,7 +22,7 @@
 git clone https://github.com/tranhiepqna/react-native-starter-kit.git
 
 # Navigate to clonned folder and Install dependencies
-cd AwesomeProject && yarn install
+cd react-native-starter-kit && yarn install
 
 # Install Pods
 cd ios && pod install
