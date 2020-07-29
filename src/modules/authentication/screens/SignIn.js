@@ -33,6 +33,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   padding-horizontal: 20px;
+  background-color: #ffffff;
 `;
 
 const Input = styled.TextInput`
