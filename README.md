@@ -9,9 +9,9 @@
 ## What's inside
 
 - **React Navigation** (Stack Navigator, Bottom Tabs Navigator, Drawer)
-- Styled Component
-- Custom fonts 
-- Social Login
+- **Styled Component**
+- **Custom fonts**
+- **Social Login**
 
 ## Getting started 
 
