@@ -39,3 +39,7 @@ To use your fonts in this project, you can do these steps below:
 
 - On iOS: Drag your splash screen images and drop it to `$ProjectName/Images.xcassets/SplashScreen`
 - On Android: Replace `launch_screen` in `app/src/res/drawable` folder with your splash screen images.
+
+### 4. Rename project
+
+By default, the project name is `AwesomeProject`. If you want to change the project name, you can run: `yarn run rename  <newName>`.
