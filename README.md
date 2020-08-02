@@ -27,3 +27,15 @@ cd react-native-starter-kit && yarn install
 # Install Pods
 cd ios && pod install
 ```
+
+### 2. Custom fonts
+
+To use your fonts in this project, you can do these steps below: 
+
+- Add your fonts to `assets/fonts`
+- Run command: `$ react-native link` your fonts will be automatic linked to the project.
+
+### 3. Add your splash screen
+
+- On iOS: Drag your splash screen images and drop it to `$ProjectName/Images.xcassets/SplashScreen`
+- On Android: Replace `launch_screen` in `app/src/res/drawable` folder with your splash screen images.
