@@ -6,6 +6,8 @@
 
 *Simple, modern, faster*
 
+***This project is currently under development***
+
 ## What's inside
 
 - **React Navigation** (Stack Navigator, Bottom Tabs Navigator, Drawer)
