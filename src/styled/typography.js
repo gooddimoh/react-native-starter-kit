@@ -7,7 +7,6 @@ export const H1 = styled.Text`
   font-size: 56px;
   line-height: 64px;
   letter-spacing: 0.2px;
-  color: ${(props) => props.color || props.colors?.text};
 `;
 
 export const H2 = styled.Text`
@@ -17,7 +16,6 @@ export const H2 = styled.Text`
   font-size: 32px;
   line-height: 40px;
   letter-spacing: 0.2px;
-  color: ${(props) => props.color || props.colors?.text};
 `;
 
 export const H3 = styled.Text`
@@ -27,7 +25,6 @@ export const H3 = styled.Text`
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.4px;
-  color: ${(props) => props.color || props.colors?.text};
 `;
 
 export const H4 = styled.Text`
@@ -37,7 +34,6 @@ export const H4 = styled.Text`
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.4px;
-  color: ${(props) => props.color || props.colors?.text};
 `;
 
 export const Body1 = styled.Text`
@@ -46,7 +42,6 @@ export const Body1 = styled.Text`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.3px;
-  color: ${(props) => props.color || props.colors?.text};
 `;
 
 export const Body2 = styled.Text`
@@ -56,5 +51,4 @@ export const Body2 = styled.Text`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.3px;
-  color: ${(props) => props.color || props.colors?.text};
 `;

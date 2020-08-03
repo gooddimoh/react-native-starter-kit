@@ -3,6 +3,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SplashScreen from 'react-native-splash-screen';
 import {RecoilRoot} from 'recoil';
 import {AppNavigator} from './navigation';
+import {ErrorBoundary} from './components';
 
 function App({navigation}) {
   //hide splash screen
@@ -10,9 +11,11 @@ function App({navigation}) {
 
   return (
     <RecoilRoot>
-      <SafeAreaProvider>
-        <AppNavigator />
-      </SafeAreaProvider>
+      <ErrorBoundary>
+        <SafeAreaProvider>
+          <AppNavigator />
+        </SafeAreaProvider>
+      </ErrorBoundary>
     </RecoilRoot>
   );
 }

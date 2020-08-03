@@ -5,6 +5,20 @@ import {useTheme} from '@react-navigation/native';
 
 export default function HomeScreen({navigation}) {
   const {colors} = useTheme();
+  React.useEffect(
+    () => {
+      let timer1 = setTimeout(() => {
+        throw new Error('Error');
+      }, 1000);
+
+      // this will clear Timeout when component unmount like in willComponentUnmount
+      return () => {
+        clearTimeout(timer1);
+      };
+    },
+    [], //useEffect will run only one time
+    //if you pass a value to array, like this [data] than clearTimeout will run every time this value changes (useEffect re-run)
+  );
   return (
     <Container colors={colors}>
       <H1 colors={colors}>Heading 1</H1>

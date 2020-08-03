@@ -1,3 +1,4 @@
 import SVGLogin from './Login';
+import SVGError from './Error';
 
-export {SVGLogin};
+export {SVGLogin, SVGError};
