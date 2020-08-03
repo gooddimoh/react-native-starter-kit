@@ -5,7 +5,7 @@ import {
   createBottomTabNavigator,
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
-import {HomeScreens} from '../../modules/home';
+import {HomeModule} from '../../modules';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -31,7 +31,7 @@ const HomeStack = () => (
           }}>
           <Tab.Screen
             name="Analytics"
-            component={HomeScreens.Home}
+            component={HomeModule.HomeScreens.Home}
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({color, size}) => (
@@ -41,7 +41,7 @@ const HomeStack = () => (
           />
           <Tab.Screen
             name="Profile"
-            component={HomeScreens.Demo}
+            component={HomeModule.HomeScreens.Demo}
             options={{
               tabBarLabel: 'Updates',
               tabBarIcon: ({color, size}) => (

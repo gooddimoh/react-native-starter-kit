@@ -1,3 +1,3 @@
-import * as Navigators from './navigators';
+import AppNavigator from './navigators';
 
-export {Navigators};
+export {AppNavigator};

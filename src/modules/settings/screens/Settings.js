@@ -4,20 +4,20 @@ import {H3} from '../../../styled/typography';
 import {useTheme} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FocusAwareStatusBar} from '../../../components';
-import {AuthContext} from '../../../contexts';
+import {useSetRecoilState} from 'recoil';
+import {AuthRecoil} from '../../authentication';
 
 export default function Settings({navigation}) {
   const {colors} = useTheme();
   const insets = useSafeAreaInsets();
-
-  const {signOut} = React.useContext(AuthContext);
+  const signOut = useSetRecoilState(AuthRecoil.userTokenSelector);
 
   return (
     <Container insets={insets}>
       <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#eeffcc" />
       <H3 colors={colors}>This is top text.</H3>
       <Button onPress={() => navigation.goBack()} title="Go back home" />
-      <Button onPress={() => signOut()} title="Log out" />
+      <Button onPress={() => signOut(null)} title="Log out" />
     </Container>
   );
 }

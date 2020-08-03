@@ -1,17 +1,22 @@
 import * as React from 'react';
-import {AuthContext} from '../../../contexts';
 import styled from 'styled-components/native';
+import {useSetRecoilState} from 'recoil';
+
 import {SVGLogin} from '../../../../assets/svg';
+import {H2, Body1} from '../../../styled/typography';
+import {useTheme} from '@react-navigation/native';
+import {userTokenSelector} from '../recoil';
 
 export default function SignInScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-
-  const {signIn} = React.useContext(AuthContext);
+  const setToken = useSetRecoilState(userTokenSelector);
+  const {colors} = useTheme();
 
   return (
     <Container>
       <SVGLogin />
+      <H2 color={colors.primary}>Welcome</H2>
       <Input
         placeholder="Username"
         value={username}
@@ -23,7 +28,12 @@ export default function SignInScreen() {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Sign in" onPress={() => signIn({username, password})} />
+      <Button
+        backgroundColor={colors.primary}
+        disabled={!username || !password}
+        onPress={() => setToken(username + password)}>
+        <Body1 color={'#fff'}>Login</Body1>
+      </Button>
     </Container>
   );
 }
@@ -46,4 +56,12 @@ const Input = styled.TextInput`
   padding-left: 10px;
 `;
 
-const Button = styled.Button``;
+const Button = styled.TouchableOpacity`
+  height: 40px;
+  width: 100%;
+  background-color: ${(props) =>
+    props.disabled ? 'gray' : props.backgroundColor};
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+`;
