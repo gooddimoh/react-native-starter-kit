@@ -1,5 +1,6 @@
 import FocusAwareStatusBar from './statusBar';
 import ErrorBoundary from './errorBoundary';
-import {DynIcon} from './icons';
+import {Header} from './header';
+import {Avatar} from './avatar';
 
-export {FocusAwareStatusBar, ErrorBoundary, DynIcon};
+export {FocusAwareStatusBar, ErrorBoundary, Header, Avatar};

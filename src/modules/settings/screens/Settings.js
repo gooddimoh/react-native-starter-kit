@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
-import {H3} from '../../../styled/typography';
 import {useTheme} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FocusAwareStatusBar} from '../../../components';
 import {useSetRecoilState} from 'recoil';
 import {AuthRecoil} from '../../authentication';
+import {H3} from '../../../atoms';
 
 export default function Settings({navigation}) {
   const {colors} = useTheme();

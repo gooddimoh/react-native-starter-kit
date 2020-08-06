@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Icon = (props) => {
   const {type, name, color, size, onPress, style} = props;
@@ -189,13 +190,22 @@ const Icon = (props) => {
       );
     }
   }
-};
+}
 
 Icon.defaultProps = {
   size: 20,
   style: {},
   onPress: null,
   color: '#757575',
+};
+
+Icon.propTypes = {
+  type: PropTypes.string,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  onPress: PropTypes.func,
+  style: PropTypes.object,
 };
 
 export default Icon;

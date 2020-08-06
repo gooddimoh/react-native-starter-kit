@@ -1,45 +1,90 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
-import {H1, H2, H3, H4, Body1, Body2} from '../../../styled/typography';
 import {useTheme} from '@react-navigation/native';
+import {Header} from '../../../components';
+import {Sample_1, Sample_2} from '../../../../assets/svg';
+import {
+  DividerVertical,
+  DividerHorizontal,
+  Container,
+  Column,
+  Row,
+  Body1,
+  H2,
+  H3,
+} from '../../../atoms';
 
 export default function HomeScreen({navigation}) {
   const {colors} = useTheme();
-  React.useEffect(
-    () => {
-      let timer1 = setTimeout(() => {
-        throw new Error('Error');
-      }, 1000);
-
-      // this will clear Timeout when component unmount like in willComponentUnmount
-      return () => {
-        clearTimeout(timer1);
-      };
-    },
-    [], //useEffect will run only one time
-    //if you pass a value to array, like this [data] than clearTimeout will run every time this value changes (useEffect re-run)
-  );
   return (
-    <Container colors={colors}>
-      <H1 colors={colors}>Heading 1</H1>
-      <H2 colors={colors}>Heading 2</H2>
-      <H3 colors={colors}>Heading 3</H3>
-      <H4 colors={colors}>Heading 4</H4>
-      <Body1 colors={colors}>Body 1</Body1>
-      <Body2 colors={colors}>Body 2</Body2>
-      <Button
-        onPress={() => navigation.navigate('Settings')}
-        title="Go to Settings"
-      />
-    </Container>
+    <StyledContainer>
+      <Header />
+      <DividerVertical spacing={20} />
+      <Box>
+        <Description colors={colors}>Light Style</Description>
+        <Name colors={colors}>Dales Personal</Name>
+        <DividerVertical spacing={20} />
+        <StyledRow>
+          <Sample_1 />
+          <DividerHorizontal spacing={20} />
+          <Sample_2 />
+        </StyledRow>
+        <DividerVertical spacing={20} />
+      </Box>
+      <Panel>
+        <StyledRow align="center">
+          <Square color="#FFCEAC" />
+          <DividerHorizontal spacing={20} />
+          <Body1>My total trips</Body1>
+        </StyledRow>
+        <DividerVertical spacing={20} />
+        <StyledRow align="center">
+          <Square color="#FFB6B6" />
+          <DividerHorizontal spacing={20} />
+          <Body1>Payment setting</Body1>
+        </StyledRow>
+        <DividerVertical spacing={20} />
+        <StyledRow align="center">
+          <Square color="#679B9B" />
+          <DividerHorizontal spacing={20} />
+          <Body1>Total distance</Body1>
+        </StyledRow>
+      </Panel>
+    </StyledContainer>
   );
 }
 
-const Container = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) => props.colors.background};
+const StyledContainer = styled(Container)`
+  background-color: #ffffff;
 `;
 
-const Button = styled.Button``;
+const Box = styled(Column)`
+  padding-horizontal: 20px;
+`;
+
+const Name = styled(H2)`
+  color: #000000;
+`;
+
+const Description = styled(H3)`
+  color: grey;
+`;
+
+const StyledRow = styled(Row)`
+  width: 100%;
+  align-items: ${(props) => props.align || 'flex-start'};
+`;
+
+const Panel = styled(Column)`
+  background-color: rgba(60, 73, 164, 0.04);
+  border-radius: 20px;
+  padding: 30px 15px 30px 15px;
+  margin-horizontal: 5px;
+`;
+
+const Square = styled.View`
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: ${(props) => props.color};
+`;

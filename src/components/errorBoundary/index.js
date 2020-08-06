@@ -3,9 +3,16 @@ import styled from 'styled-components/native';
 import {TouchableOpacity} from 'react-native';
 import {DefaultTheme} from '@react-navigation/native';
 
-import {StyledView, Typography, StyledDivider} from '../../styled';
 import {SVGError} from '../../../assets/svg';
-import {DynIcon} from '../icons';
+import {
+  DividerVertical,
+  DividerHorizontal,
+  Body1,
+  Center,
+  H3,
+  Row,
+  Icon,
+} from '../../atoms';
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -30,25 +37,25 @@ export default class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <Center>
+        <StyledCenter>
           <SVGError />
-          <StyledDivider.DividerVertical spacing={20} />
+          <DividerVertical spacing={20} />
           <Title>Something went wrong</Title>
-          <StyledDivider.DividerVertical spacing={20} />
+          <DividerVertical spacing={20} />
           <TouchableOpacity onPress={this.onRefresh}>
-            <Row>
-              <DynIcon
+            <StyledRow>
+              <Icon
                 name="refresh"
                 type="FontAwesome"
                 size={30}
                 color={DefaultTheme.colors.primary}
                 disabled
               />
-              <StyledDivider.DividerHorizontal spacing={8} />
-              <Typography.Body1>Refresh</Typography.Body1>
-            </Row>
+              <DividerHorizontal spacing={8} />
+              <Body1>Refresh</Body1>
+            </StyledRow>
           </TouchableOpacity>
-        </Center>
+        </StyledCenter>
       );
     }
 
@@ -56,14 +63,14 @@ export default class ErrorBoundary extends React.Component {
   }
 }
 
-const Center = styled(StyledView.Center)`
+const StyledCenter = styled(Center)`
   flex: 1;
 `;
 
-const Title = styled(Typography.H3)`
+const Title = styled(H3)`
   color: ${DefaultTheme.colors.primary};
 `;
 
-const Row = styled(StyledView.Row)`
+const StyledRow = styled(Row)`
   align-items: center;
 `;

@@ -3,9 +3,9 @@ import styled from 'styled-components/native';
 import {useSetRecoilState} from 'recoil';
 
 import {SVGLogin} from '../../../../assets/svg';
-import {H2, Body1} from '../../../styled/typography';
 import {useTheme} from '@react-navigation/native';
 import {userTokenSelector} from '../recoil';
+import {Button, Input, H2, Body1} from '../../../atoms';
 
 export default function SignInScreen() {
   const [username, setUsername] = React.useState('');
@@ -29,10 +29,12 @@ export default function SignInScreen() {
         secureTextEntry
       />
       <Button
+        transparent
+        textColor={colors.primary}
         backgroundColor={colors.primary}
         disabled={!username || !password}
         onPress={() => setToken(username + password)}>
-        <Body1 color={'#fff'}>Login</Body1>
+        <Body1>Login</Body1>
       </Button>
     </Container>
   );
@@ -44,24 +46,4 @@ const Container = styled.View`
   align-items: center;
   padding-horizontal: 20px;
   background-color: #ffffff;
-`;
-
-const Input = styled.TextInput`
-  height: 40px;
-  border-color: gray;
-  border-width: 1px;
-  width: 100%;
-  margin-vertical: 10px;
-  border-radius: 8px;
-  padding-left: 10px;
-`;
-
-const Button = styled.TouchableOpacity`
-  height: 40px;
-  width: 100%;
-  background-color: ${(props) =>
-    props.disabled ? 'gray' : props.backgroundColor};
-  border-radius: 8px;
-  justify-content: center;
-  align-items: center;
 `;
